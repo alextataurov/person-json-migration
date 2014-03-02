@@ -1,0 +1,34 @@
+http://www.json-generator.com/
+
+[
+    '{{repeat(500, 500)}}',
+    {
+        id: '{{index}}',
+        name: '{{firstName}} {{surname}}',
+        age: '{{numeric(20,40)}}',
+        isActive: '{{bool}}',
+        company: '{{company}}',
+        address: '{{numeric(100,999)}} {{street}}, {{city}}, {{state}}, {{numeric(100,10000)}}',
+        registered: '{{date(YYYY-MM-dd hh:mm:ss)}}',
+        phoneNumbers: [
+            '{{repeat(1,2)}}',
+            {
+                type: function(idx) {
+                    var types = ['home', 'work'];
+                    return types[idx];
+                },
+                number: '+1 {{phone}}'
+            }
+        ],
+        emailAddresses: [
+            '{{repeat(1,2)}}',
+            {
+                type: function(idx) {
+                    var types = ['business', 'personal'];
+                    return types[idx];
+                },
+                emailAddress:'{{email(random)}}'
+            }
+        ]
+    }
+]
